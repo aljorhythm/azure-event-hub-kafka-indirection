@@ -13,6 +13,6 @@
         "strictNullChecks": true,
         "outDir": "dist"
     },
-    "include": ["src", "babel.config.js", ".eslintrc.cjs", "**/*.spec.ts"],
+    "include": ["src", "babel.config.js", ".eslintrc.cjs", "**/*.spec.ts", "jest.config.ts"],
     "exclude": ["node_modules"]
 }

@@ -22,7 +22,6 @@ module.exports = {
     sourceType: 'module',
     project: ['./tsconfig.json'],
     tsconfigRootDir: __dirname
-
   },
   rules: {
   }
