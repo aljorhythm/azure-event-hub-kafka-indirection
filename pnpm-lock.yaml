@@ -14,6 +14,9 @@ devDependencies:
   '@babel/preset-typescript':
     specifier: ^7.23.3
     version: 7.23.3(@babel/core@7.23.3)
+  '@testcontainers/kafka':
+    specifier: ^10.2.2
+    version: 10.2.2
   '@types/jest':
     specifier: ^29.5.9
     version: 29.5.9
@@ -1688,6 +1691,15 @@ packages:
     resolution: {integrity: sha512-V4BG07kuYSUkTCSBHG8G8TNhM+F19jXFWnQtzj+we8DrkpSBCee9Z3Ms8yiGer/dlmhe35/Xdgyo3/0rQKg7YA==}
     dependencies:
       '@sinonjs/commons': 3.0.0
+    dev: true
+
+  /@testcontainers/kafka@10.2.2:
+    resolution: {integrity: sha512-yLbbYPV4piSoSoSES8k0zQsi/+5Xx8ERuf40LoD+80aV8a4b02MZKT4tL/YYoDHInae4/rEJP356IkmezNb7Xw==}
+    dependencies:
+      testcontainers: 10.2.2
+    transitivePeerDependencies:
+      - encoding
+      - supports-color
     dev: true
 
   /@tsconfig/node10@1.0.9:

@@ -1,17 +1,16 @@
 import {
-  type TestContainer,
-  type StartedTestContainer,
-  type StoppedTestContainer,
-  GenericContainer
+  type StoppedTestContainer
 } from 'testcontainers'
 
-const container: TestContainer = new GenericContainer('alpine')
+import { KafkaContainer } from '@testcontainers/kafka'
 
 describe('send event', () => {
   it('should send click', async () => {
-    const startedContainer: StartedTestContainer = await container.start()
+    const kafkaContainer = await new KafkaContainer().withExposedPorts(9093)
+      .withStartupTimeout(100000)
+      .start()
 
-    const stoppedContainer: StoppedTestContainer = await startedContainer.stop()
+    const stoppedContainer: StoppedTestContainer = await kafkaContainer.stop()
     console.log('🚀 ~ file: click.spec.ts:14 ~ it ~ stoppedContainer:', stoppedContainer)
   })
 })
