@@ -11,7 +11,8 @@
         "allowSyntheticDefaultImports": true,
         "declaration": false,
         "strictNullChecks": true,
-        "outDir": "dist"
+        "outDir": "dist",
+        "noImplicitAny": true
     },
     "include": ["src", "babel.config.js", ".eslintrc.cjs", "**/*.spec.ts", "jest.config.ts"],
     "exclude": ["node_modules"]
