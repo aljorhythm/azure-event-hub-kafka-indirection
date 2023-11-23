@@ -4,8 +4,7 @@
 ~~producer connect to kafka test container~~
 ~~producer: publish click~~
 ~~create topic~~
+~~consumer: consume click~~
 
-consumer: consume click
-
-fix testcontainer container port
+fix testcontainer container port between test runs
 https://github.com/testcontainers/testcontainers-java/issues/256#issuecomment-1525963601
