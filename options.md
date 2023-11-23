@@ -9,7 +9,7 @@ minimal / no change to application code
 existing application
 ```javascript
 
-const CONNECTION_STRING = process.env.KAFKA_CONNECTION_STRING
+const { CONNECTION_STRING, EVENT_HUB } = process.env
 
 function publish(message) {
     azureSdk.publish(CONNECTION_STRING, EVENT_HUB, message)
@@ -31,10 +31,10 @@ existing application
 ```javascript
 import azureSdk from 'azure-sdk'
 
-const CONNECTION_STRING = process.env.KAFKA_CONNECTION_STRING
+const { CONNECTION_STRING, EVENT_HUB } = process.env
 
 function publish(message) {
-    azureSdk.publish(CONNECTION_STRING, message)
+    azureSdk.publish(CONNECTION_STRING, EVENT_HUB, message)
 }
 
 ```
@@ -43,7 +43,7 @@ after application
 ```javascript
 import kafka from 'node-rdkafka'
 
-const CONNECTION_STRING = process.env.KAFKA_CONNECTION_STRING
+const { CONNECTION_STRING } = process.env
 
 function publish(message) {
     kafka.publish(CONNECTION_STRING, message)
@@ -57,10 +57,10 @@ existing application
 ```javascript
 import azureSdk from 'azure-sdk'
 
-const CONNECTION_STRING = process.env.KAFKA_CONNECTION_STRING
+const { CONNECTION_STRING, EVENT_HUB } = process.env
 
 function publish(message) {
-    azureSdk.publish(CONNECTION_STRING, message)
+    azureSdk.publish(CONNECTION_STRING, EVENT_HUB, message)
 }
 
 ```
@@ -70,8 +70,7 @@ changed application
 import azureSdk from 'azure-sdk'
 import kafka from 'node-rdkfaka'
 
-const CONNECTION_STRING = process.env.KAFKA_CONNECTION_STRING
-const ENV = process.env.ENV
+const { CONNECTION_STRING, ENV } = process.env
 
 function publish(message) {
     if(ENV === 'prod') {
@@ -82,6 +81,22 @@ function publish(message) {
 }
 
 ```
+
+## Client libraries
+
+### node-rdkafka
+
+<https://github.com/Blizzard/node-rdkafka/>
+
+notes:
+
+- have to insert wait after consume.on('ready'), messages published too quickly after consumer is ready won't be consumed
+- used in official Azure example
+- `kafkajs` really has a nicer API
+
+### kafkajs
+
+<https://github.com/tulios/kafkajs/>
 
 ## Standalone Kafka
 
@@ -96,6 +111,7 @@ function publish(message) {
 
 Notes
 - No way to fix mapped ports, port randomly assigned on every test run (testcontainer instance creation)
+- Unreliable start up time (30s to 60s)
 
 ### Docker
 

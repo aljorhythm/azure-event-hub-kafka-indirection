@@ -26,12 +26,8 @@ const main = async function (): Promise<void> {
     .on('data', (data) => {
       console.log('received message found!  Contents below.', data.value?.toString())
     })
-    .on('event.log', (err) => {
-      console.log('error', err)
-    })
-    .on('disconnected', () => {
-      console.log('disconnected')
-    })
+    .on('event.log', console.log)
+    .on('disconnected', console.log)
 }
 
 main().catch(console.error)
