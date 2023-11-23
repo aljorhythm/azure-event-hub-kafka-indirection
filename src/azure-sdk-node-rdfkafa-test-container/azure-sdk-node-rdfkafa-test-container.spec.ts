@@ -70,8 +70,8 @@ describe('send event', () => {
     broker = `${host}:${port}`
     await createTopic(broker)
 
-    const eventsAdaptor = await newNodeRdkafkaAdaptor({ brokerList: broker, clientId, topic })
-    clicks = new Clicks(eventsAdaptor)
+    const clicksEventsAdaptor = await newNodeRdkafkaAdaptor({ brokerList: broker, clientId, topic })
+    clicks = new Clicks(clicksEventsAdaptor)
   })
 
   it('should send click', async () => {
