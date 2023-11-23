@@ -6,8 +6,8 @@
   "scripts": {
     "build": "tsc --build",
     "test": "jest",
-    "consumer": "ts-node src/click/consumer.ts",
-    "test:watch": "jest --watchAll"
+    "test:watch": "jest --watchAll",
+    "consumer": "ts-node src/click/consumer.ts"
   },
   "keywords": [],
   "author": "",
