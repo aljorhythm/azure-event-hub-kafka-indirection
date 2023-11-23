@@ -1,5 +1,3 @@
-import { type StoppedTestContainer } from 'testcontainers'
-
 import { KafkaContainer, type StartedKafkaContainer } from '@testcontainers/kafka'
 import Kafka, { type ConsumerGlobalConfig, type ClientMetrics, type ProducerGlobalConfig, type GlobalConfig, type KafkaConsumer } from 'node-rdkafka'
 import { v4 as uuid } from 'uuid'
@@ -78,10 +76,6 @@ async function publishClick (brokerList: ProducerGlobalConfig['metadata.broker.l
     messageKey,
     Date.now()
   )
-
-  // await new Promise<void>((resolve) => {
-  //   producer.flush(100, () => { console.log('flushed'); resolve() })
-  // })
 
   const disconnectProducer = new Promise<{ err: Error, data: ClientMetrics }>((resolve) => {
     producer.disconnect((err, data) => {
