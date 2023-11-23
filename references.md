@@ -1,5 +1,5 @@
 
-# Scratch
+# References
 
 - Event hub kafka developer guide <https://learn.microsoft.com/en-us/azure/event-hubs/apache-kafka-developer-guide>
 - Developer guide in node <https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/quickstart/node>
@@ -15,7 +15,6 @@
   - <https://github.com/testcontainers/testcontainers-node>
   - Kafka servers with testcontainers in nodejs <https://blog.devgenius.io/running-kafka-servers-with-testcontainers-in-node-js-53ab2ad9d453>
   - Supported container runtimes <https://node.testcontainers.org/supported-container-runtimes/>
-  - 
 - Setup with Colima + testcontainers
 <https://github.com/testcontainers/testcontainers-java/issues/5034#issuecomment-1319812252>
 

@@ -6,6 +6,7 @@
   "scripts": {
     "build": "tsc --build",
     "test": "jest",
+    "consumer": "ts-node src/click/consumer.ts",
     "test:watch": "jest --watchAll"
   },
   "keywords": [],
