@@ -3,7 +3,7 @@
 
 - Event hub kafka developer guide <https://learn.microsoft.com/en-us/azure/event-hubs/apache-kafka-developer-guide>
 - Developer guide in node <https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/quickstart/node>
-- <https://learn.microsoft.com/en-us/azure/event-hubs/azure-event-hubs-kafka-overview>
+- What is Azure Event Hubs for Apache Kafka <https://learn.microsoft.com/en-us/azure/event-hubs/azure-event-hubs-kafka-overview>
 - Azure SDK for JS (old client has been deprecated) <https://github.com/Azure/azure-sdk-for-js>
   - Send events to or receive events from event hubs by using JavaScript <https://learn.microsoft.com/en-us/azure/event-hubs/event-hubs-node-get-started-send?tabs=passwordless%2Croles-azure-portal>
   - Samples <https://github.com/Azure/azure-event-hubs>
