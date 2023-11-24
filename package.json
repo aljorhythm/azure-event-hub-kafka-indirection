@@ -37,6 +37,7 @@
     "typescript": "^5.3.2"
   },
   "dependencies": {
+    "@azure/event-hubs": "^5.11.3",
     "node-rdkafka": "^2.18.0",
     "uuid": "^9.0.1"
   }

@@ -87,7 +87,11 @@ function publish(message) {
 Infrastructure-as-code
 Costs $
 
-## Client libraries
+## Notes
+
+### [azure-sdk](https://github.com/Azure/azure-sdk-for-js)
+
+## Kafka Client libraries
 
 ### node-rdkafka
 
