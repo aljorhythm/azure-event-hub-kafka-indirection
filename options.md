@@ -82,6 +82,11 @@ function publish(message) {
 
 ```
 
+### 4. Spin up Azure Event Hub on demand
+
+Infrastructure-as-code
+Costs $
+
 ## Client libraries
 
 ### node-rdkafka
