@@ -7,11 +7,12 @@ interface Args {
   topic: string
 }
 
-interface NodeRdkafkaAdaptor {
+export interface NodeRdkafkaAdaptor {
   producer: Kafka.Producer
   publish: (msg: string) => Promise<void>
   disconnect: () => Promise<{ error: Error, data: ClientMetrics }>
 }
+
 export async function newNodeRdkafkaAdaptor ({ brokerList, clientId, topic }: Args): Promise<NodeRdkafkaAdaptor> {
   const producer = new Kafka.Producer({
     debug: 'all',
@@ -24,6 +25,8 @@ export async function newNodeRdkafkaAdaptor ({ brokerList, clientId, topic }: Ar
       resolve()
     })
   })
+
+  producer.on('event.log', console.log)
 
   producer.connect()
 

@@ -1,6 +1,7 @@
 import { KafkaContainer, type StartedKafkaContainer } from '@testcontainers/kafka'
 import Kafka, { type ConsumerGlobalConfig, type ClientMetrics, type ProducerGlobalConfig, type GlobalConfig, type KafkaConsumer } from 'node-rdkafka'
 import { v4 as uuid } from 'uuid'
+import { sleep } from '../sleep'
 
 const topic = 'click'
 const clientId = 'spike'
@@ -41,7 +42,7 @@ async function initConsumer (brokerList: ConsumerGlobalConfig['metadata.broker.l
       .on('ready', () => {
         consumer.subscribe([topic])
         consumer.consume()
-        new Promise((resolve) => setTimeout(resolve, 5000)).then(resolve).catch(console.error)
+        sleep(5000).then(resolve).catch(console.error)
       })
   })
 
@@ -122,7 +123,7 @@ describe('send event', () => {
       await publishClick(broker, msg)
     }
 
-    await new Promise((resolve) => setTimeout(resolve, 1000))
+    await sleep(1000)
 
     expect(msgsReceived).toEqual(msgs)
   })

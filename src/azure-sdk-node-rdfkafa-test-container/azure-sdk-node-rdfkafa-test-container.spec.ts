@@ -1,8 +1,9 @@
 import { KafkaContainer, type StartedKafkaContainer } from '@testcontainers/kafka'
 import Kafka, { type ConsumerGlobalConfig, type GlobalConfig, type KafkaConsumer } from 'node-rdkafka'
-import { newNodeRdkafkaAdaptor } from './node-rdkafka-adaptor'
+import { type NodeRdkafkaAdaptor, newNodeRdkafkaAdaptor } from './node-rdkafka-adaptor'
 import { clientId, topic } from './clicks-kafka-config'
 import { Clicks } from './clicks'
+import { sleep } from '../sleep'
 
 async function createTopic (brokerList: GlobalConfig['metadata.broker.list']): Promise<void> {
   await new Promise<void>((resolve, reject) => {
@@ -40,7 +41,7 @@ async function initConsumer (brokerList: ConsumerGlobalConfig['metadata.broker.l
       .on('ready', () => {
         consumer.subscribe([topic])
         consumer.consume()
-        new Promise((resolve) => setTimeout(resolve, 5000)).then(resolve).catch(console.error)
+        sleep(5000).then(resolve).catch(console.error)
       })
   })
 
@@ -56,7 +57,7 @@ describe('send event', () => {
   let consumer: KafkaConsumer | undefined
   let broker: string | undefined
   let clicks: Clicks
-
+  let clicksEventsAdaptor: NodeRdkafkaAdaptor
   const kafkaPort = 9093
 
   beforeAll(async () => {
@@ -70,7 +71,7 @@ describe('send event', () => {
     broker = `${host}:${port}`
     await createTopic(broker)
 
-    const clicksEventsAdaptor = await newNodeRdkafkaAdaptor({ brokerList: broker, clientId, topic })
+    clicksEventsAdaptor = await newNodeRdkafkaAdaptor({ brokerList: broker, clientId, topic })
     clicks = new Clicks(clicksEventsAdaptor)
   })
 
@@ -91,7 +92,7 @@ describe('send event', () => {
       await clicks.publishClick(msg)
     }
 
-    await new Promise((resolve) => setTimeout(resolve, 1000))
+    await sleep(5000)
 
     expect(msgsReceived).toEqual(msgs)
   })
@@ -108,6 +109,8 @@ describe('send event', () => {
       }
       resolve()
     })
+
+    await clicksEventsAdaptor.disconnect()
 
     await kafkaContainer.stop()
   })
