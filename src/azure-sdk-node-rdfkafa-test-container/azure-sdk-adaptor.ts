@@ -1,12 +1,12 @@
 import { EventHubProducerClient } from '@azure/event-hubs'
 
-export interface NodeRdkafkaAdaptor {
+export interface AzureSdkAdaptor {
   producer: EventHubProducerClient
   publish: (msg: string) => Promise<void>
   disconnect: () => Promise<void>
 }
 
-export async function newAzureSDKAdaptor (connectionString: string, eventHubName: string): Promise<NodeRdkafkaAdaptor> {
+export async function newAzureSDKAdaptor (connectionString: string, eventHubName: string): Promise<AzureSdkAdaptor> {
   const producer = new EventHubProducerClient(connectionString, eventHubName)
 
   return {

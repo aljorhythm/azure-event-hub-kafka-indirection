@@ -8,7 +8,7 @@
   - Send events to or receive events from event hubs by using JavaScript <https://learn.microsoft.com/en-us/azure/event-hubs/event-hubs-node-get-started-send?tabs=passwordless%2Croles-azure-portal>
   - Samples <https://github.com/Azure/azure-event-hubs>
   - Typescript sample <https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/eventhub/event-hubs/samples/v5/typescript>
-
+  - Event Hubs connection string https://learn.microsoft.com/en-us/azure/event-hubs/event-hubs-get-connection-string
 - <https://testcontainers.com/modules/kafka/>
   - Testcontainers for Kafka Module <https://node.testcontainers.org/modules/kafka/>
   - Waiting for containers to start or be ready <https://java.testcontainers.org/features/startup_and_waits/>

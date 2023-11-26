@@ -121,7 +121,7 @@ notes:
 Notes
 - No way to fix mapped ports, port randomly assigned on every test run (testcontainer instance creation)
 - Unreliable container start up time (30s to 60s)
-- On very first image download without cache, there are no logs
+- On very first image download without cache, there are no logs so it cannot be inferred what is going on
 
 ### Docker
 
