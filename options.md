@@ -99,7 +99,7 @@ Costs $
 
 notes:
 
-- have to insert wait after consume.on('ready'), messages published too quickly after consumer is ready won't be consumed
+- have to insert wait **after** consume.on('ready'), messages published too quickly after consumer is ready won't be consumed
 - used in official Azure example
 - `kafkajs` really has a nicer API
 
